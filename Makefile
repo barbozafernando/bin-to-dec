@@ -1,5 +1,5 @@
-run:
-	gcc main.c -o main -lm
-	
+all: 
+	gcc -o bin-to-dec main.c utils.c
+
 clean:
-	rm main
+	rm -rf *.o
