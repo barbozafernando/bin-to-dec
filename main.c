@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
   const char *value = argv[1];
   size_t length = strlen(value) - 1;
   size_t final_array[strlen(value)];
-  int result2 = 0;
+  int decimal = 0;
 
   if (argc != 2) {
     usage();
@@ -15,8 +15,8 @@ int main(int argc, char *argv[]) {
   }
 
   if (is_valid_binary(value) != 1) {
-    printf("\n<bin-to-dec> error: invalid binary");
-    return 1;
+    printf("<bin-to-dec> error: invalid binary");
+    return EXIT_FAILURE;
   }
 
   for(int i = 0; i < strlen(value); i++) {
@@ -41,12 +41,13 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  size_t length2 = sizeof(final_array) / sizeof(final_array[0]); 
-  for(int i = 0; i < length2; i++) {
-    result2 += final_array[i];
+  size_t final_array_length = (sizeof(final_array) / sizeof(final_array[0]));
+
+  for(int i = 0; i < final_array_length; i++) {
+    decimal += final_array[i];
   }
 
-  printf("%d\n", result2);
+  printf("%d\n", decimal);
   return EXIT_SUCCESS;
 }
 
