@@ -1,4 +1,4 @@
-name: Clear project
+name: Clean project
 
 on:
   push:
