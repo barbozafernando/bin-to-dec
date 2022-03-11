@@ -1,6 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "utils.h"
 
 size_t power(size_t base, size_t exp) {
   int result = 1;
@@ -10,6 +10,11 @@ size_t power(size_t base, size_t exp) {
   }
 
   return result;
+}
+
+void fatal(char *msg) {
+  fprintf(stderr, "<bin-to-dec> Error: %s\n", msg);
+  exit(1);
 }
 
 size_t is_valid_binary(const char *binary) {
@@ -28,3 +33,4 @@ void usage() {
   printf("\n USAGE: ./bin-to-dec <binary number>");
   printf("It will convert the binary into decimal\n");
 }
+
