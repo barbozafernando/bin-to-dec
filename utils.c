@@ -17,9 +17,9 @@ void fatal(char *msg) {
   exit(1);
 }
 
-size_t is_valid_binary(const char *binary) {
+size_t is_valid_binary(char *binary) {
   for(size_t i = 0; i < strlen(binary); i++) {
-    const char *bit = &binary[i];
+    char *bit = &binary[i];
 
     if (strcmp(bit, "0") == 0 || strcmp(bit, "1") == 0) {
       return 1;

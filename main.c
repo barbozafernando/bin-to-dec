@@ -9,6 +9,11 @@ int main(int argc, char *argv[]) {
   }
   
   char *value = argv[1];
+
+  if (!is_valid_binary(value)) {
+    fatal("Invalid binary");
+  }
+
   int result = calculate(value);
 
   printf("%d\n", result);

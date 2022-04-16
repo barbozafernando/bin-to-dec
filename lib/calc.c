@@ -7,14 +7,9 @@ int calculate(char *value) {
   size_t final_array[strlen(value)];
   int decimal = 0;
 
-  if (!is_valid_binary(value)) {
-    fatal("Invalid binary");
-  }
-
   for(int i = 0; i < strlen(value); i++) {
-    int acc = 0;
+    int acc, result = 0;
     int bit = value[i] - '0'; // convert string into int
-    int result = 0;
     int *ptr_result;
 
     ptr_result = &result;
