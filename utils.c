@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
-size_t power(size_t base, size_t exp) {
+uint16_t power(size_t base, size_t exp) {
   int result = 1;
 
   for (exp; exp > 0; exp--){
@@ -17,7 +17,7 @@ void fatal(char *msg) {
   exit(1);
 }
 
-size_t is_valid_binary(char *binary) {
+uint8_t is_valid_binary(char *binary) {
   for(size_t i = 0; i < strlen(binary); i++) {
     char *bit = &binary[i];
 
