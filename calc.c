@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../utils.c"
+#include "utils.c"
 
 int calculate(char *value) {
   size_t length = strlen(value) - 1;

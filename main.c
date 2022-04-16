@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lib/calc.c"
+#include "calc.c"
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
