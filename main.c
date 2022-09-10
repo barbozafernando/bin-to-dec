@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     fatal("Invalid binary");
   }
 
-  int result = calculate(value);
+  int result = convert(value);
 
   printf("%d\n", result);
   return 0;

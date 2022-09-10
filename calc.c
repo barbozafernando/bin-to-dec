@@ -2,35 +2,33 @@
 #include <stdlib.h>
 #include "utils.c"
 
-int calculate(char *value) {
-  size_t length = strlen(value) - 1;
-  size_t final_array[strlen(value)];
+#define BINARY_LENGTH strlen(binary)
+
+int convert(char *binary) {
+  size_t temp = BINARY_LENGTH - 1;
+  size_t final_array[BINARY_LENGTH];
   int decimal = 0;
 
-  for(int i = 0; i < strlen(value); i++) {
+  for(int i = 0; i < strlen(binary); i++) {
     int acc, result = 0;
-    int bit = value[i] - '0'; // convert string into int
-    int *ptr_result;
+    int *result_ptr = &result;
+    int bit = binary[i] - '0'; // convert string into int
 
-    ptr_result = &result;
+    *result_ptr = bit * power(2, temp);
 
-    *ptr_result = bit * power(2, length);
-
-    if (*ptr_result == 0) {
-      *ptr_result = power(2, length);
+    if (*result_ptr == 0) {
+      *result_ptr = power(2, temp);
     }
 
-    acc = *ptr_result * bit;
+    acc = *result_ptr * bit;
     final_array[i] = acc;
 
-    if (length != 0) {
-      length--;
+    if (temp != 0) {
+      temp--;
     }
   }
 
-  size_t final_array_length = (sizeof(final_array) / sizeof(final_array[0]));
-
-  for(int i = 0; i < final_array_length; i++) {
+  for(int i = 0; i < BINARY_LENGTH; i++) {
     decimal += final_array[i];
   }
 
