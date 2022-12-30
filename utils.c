@@ -30,7 +30,7 @@ uint8_t is_valid_binary(char *binary) {
 }
 
 void usage() {
-  printf("\n USAGE: ./bin-to-dec <binary number>");
-  printf("It will convert the binary into decimal\n");
+  printf("\n USAGE: \n\t./bin-to-dec <binary number>");
+  printf("\n\tIt will convert the binary into decimal\n");
 }
 
