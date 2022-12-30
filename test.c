@@ -4,26 +4,16 @@
 
 int main()
 {
-  char *first_value = "1010";
-  char *second_value = "0101";
-  char *third_value = "1111";
-  char *fourth_value = "0000";
-  char *fifth_value = "1001100101";
+  char *binaries[] = {"1010", "0101", "1111", "0000000", "1001100101"};
+  int results[] = {10, 5, 15, 0, 613};
 
-  int first_result = convert(first_value);
-  assert(first_result == 10);
+  for(int i = 0; i < 5; i++)
+  {
+    char *value = binaries[i];
+    int result = convert(value);
 
-  int second_result = convert(second_value);
-  assert(second_result == 5);
-
-  int third_result = convert(third_value);
-  assert(third_result == 15);
-  
-  int fourth_result = convert(fourth_value);
-  assert(fourth_result == 0);
-
-  int fifth_result = convert(fifth_value);
-  assert(fifth_result == 613);
+    assert(result == results[i]);
+  }
 
   return 0;
 }
