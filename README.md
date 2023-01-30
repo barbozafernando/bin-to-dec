@@ -15,3 +15,5 @@ $ make
 ```
 $ ./bin-to-dec 10011001
 ```
+
+This project was inspired by [this repo](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md)
