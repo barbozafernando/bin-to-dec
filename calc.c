@@ -1,18 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "utils.c"
 
 #define BINARY_LENGTH strlen(binary)
 
-int convert(char *binary) {
-  size_t temp = BINARY_LENGTH - 1;
-  size_t final_array[BINARY_LENGTH];
-  int decimal = 0;
+long long convert(char* binary) {
+  long long temp = BINARY_LENGTH - 1;
+  long long final_array[BINARY_LENGTH];
+  long long decimal = 0;
 
-  for(int i = 0; i < strlen(binary); i++) {
-    int acc, result = 0;
-    int *result_ptr = &result;
-    int bit = binary[i] - '0'; // convert string into int
+  for(long long i = 0; i < (long long)strlen(binary); i++) {
+    long long acc, result = 0;
+    long long *result_ptr = &result;
+    long long bit = binary[i] - '0'; // convert string into int
 
     *result_ptr = bit * power(2, temp);
 
@@ -28,7 +26,7 @@ int convert(char *binary) {
     }
   }
 
-  for(int i = 0; i < BINARY_LENGTH; i++) {
+  for(size_t i = 0; i < BINARY_LENGTH; i++) {
     decimal += final_array[i];
   }
 

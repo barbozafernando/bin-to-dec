@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
 
-uint16_t power(size_t base, size_t exp) {
-  int result = 1;
+int power(size_t base, size_t exp) {
+  long long result = 1;
 
-  for (exp; exp > 0; exp--){
+  for (; exp > 0; exp--){
     result = result * base;
   }
 
@@ -17,9 +18,9 @@ void fatal(char *msg) {
   exit(1);
 }
 
-uint8_t is_valid_binary(char *binary) {
-  for(size_t i = 0; i < strlen(binary); i++) {
-    char *bit = &binary[i];
+long long is_valid_binary(char *binary) {
+  for(long long i = 0; i < (long long) strlen(binary); i++) {
+    char* bit = &binary[i];
 
     if (strcmp(bit, "0") == 0 || strcmp(bit, "1") == 0) {
       return 1;
@@ -31,6 +32,5 @@ uint8_t is_valid_binary(char *binary) {
 
 void usage() {
   printf("\n USAGE: \n\t./bin-to-dec <binary number>");
-  printf("\n\tIt will convert the binary into decimal\n");
 }
 
