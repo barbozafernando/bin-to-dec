@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdint.h>
 
-int power(size_t base, size_t exp) {
+long long power(size_t base, size_t exp) {
   long long result = 1;
 
   for (; exp > 0; exp--){
