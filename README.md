@@ -1,5 +1,5 @@
 # bin-to-dec
-<p>A cli who converts 32-bit binary into decimal.</p>
+<p>A cli who converts 64-bit signed binary into decimal.</p>
 
 # Requirements
 - GCC
