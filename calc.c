@@ -1,34 +1,33 @@
 #include "calc.h"
 
-#define BINARY_LENGTH strlen(binary)
-
-int power(size_t base, size_t exp) {
+long long power_of_two(long long exp) {
   long long result = 1;
 
   for (; exp > 0; exp--){
-    result = result * base;
+    result = result << 1;
   }
 
   return result;
 }
 
 long long convert(char* binary) {
-  long long temp = BINARY_LENGTH - 1;
-  long long final_array[BINARY_LENGTH];
+  size_t binary_len = strlen(binary);
+  long long temp = binary_len - 1;
+  long long final_array[binary_len];
   long long decimal = 0;
 
-  for(long long i = 0; i < (long long)strlen(binary); i++) {
+  for(size_t i = 0; i < binary_len; i++) {
     long long acc, result = 0;
-    long long *result_ptr = &result;
-    long long bit = binary[i] - '0'; // convert string into int
+    long long *p_result = &result;
+    long long bit = binary[i] - 48;
 
-    *result_ptr = bit * power(2, temp);
+    *p_result = bit * power_of_two(temp);
 
-    if (*result_ptr == 0) {
-      *result_ptr = power(2, temp);
+    if (*p_result == 0) {
+      *p_result = power_of_two(temp);
     }
 
-    acc = *result_ptr * bit;
+    acc = *p_result * bit;
     final_array[i] = acc;
 
     if (temp != 0) {
@@ -36,7 +35,7 @@ long long convert(char* binary) {
     }
   }
 
-  for(size_t i = 0; i < BINARY_LENGTH; i++) {
+  for(size_t i = 0; i < binary_len; i++) {
     decimal += final_array[i];
   }
 

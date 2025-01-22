@@ -3,7 +3,9 @@
 
 #include <string.h>
 
+extern size_t binary_len;
+
 long long convert(char* binary);
-int power(size_t base, size_t exp);
+long long power_of_two(long long exp);
 
 #endif

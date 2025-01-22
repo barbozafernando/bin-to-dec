@@ -1,27 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "calc.h"
 
 void fatal(char* msg) {
-  fprintf(stderr, "<bin-to-dec> Error: %s\n", msg);
+  fprintf(stderr, "<bin2dec> Error: %s\n", msg);
   exit(1);
 }
 
-long long is_valid_binary(char* binary) {
-  for(long long i = 0; i < (long long) strlen(binary); i++) {
-    char* bit = &binary[i];
-
-    if (strcmp(bit, "0") == 0 || strcmp(bit, "1") == 0) {
-      return 1;
+int is_valid_binary(char* binary) {
+  for(size_t i = 0; i < strlen(binary); ++i) {
+    if (binary[i] != '0' && binary[i] != '1') {
+      return 0;
     }
   }
 
-  return 0;
+  return 1;
 }
 
 void usage() {
-  printf("\n USAGE: \n\t./bin-to-dec <binary number>");
+  printf("USAGE: ./bin2dec <binary>");
 }
 
 int main(int argc, char* argv[]) {
@@ -34,11 +33,12 @@ int main(int argc, char* argv[]) {
 
   if (!is_valid_binary(value)) {
     fatal("Invalid binary");
+    usage();
   }
 
   long long result = convert(value);
 
-  fprintf(stdout, "%lli\n", result);
+  fprintf(stdout, "%lld\n", result);
 
   return 0;
 }
