@@ -1,6 +1,16 @@
-#include "utils.c"
+#include "calc.h"
 
 #define BINARY_LENGTH strlen(binary)
+
+int power(size_t base, size_t exp) {
+  long long result = 1;
+
+  for (; exp > 0; exp--){
+    result = result * base;
+  }
+
+  return result;
+}
 
 long long convert(char* binary) {
   long long temp = BINARY_LENGTH - 1;

@@ -1,6 +1,6 @@
 CC=gcc
-SRC=main.c
-TARGET=bin-to-dec
+SRC=main.c calc.c
+TARGET=bin2dec
 CFLAGS=-Wall -Wextra -std=c17 -g
 
 all:

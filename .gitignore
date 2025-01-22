@@ -37,6 +37,7 @@
 *.hex
 bin-to-dec
 test
+bin2dec
 
 # Debug files
 *.dSYM/
