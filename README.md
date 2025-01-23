@@ -1,4 +1,4 @@
-# bin-to-dec
+# bin2dec
 <p>A cli who converts 64-bit signed binary into decimal.</p>
 
 # Requirements
