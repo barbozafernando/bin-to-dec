@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include "calc.c"
+#include "calc.h"
 
 int main() {
     char* binaries[] = {"1010", "0101", "1111", "0000000", "1001100101", "111111111111111111111111111111111111111111111111111111111111111"};
