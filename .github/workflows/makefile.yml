@@ -1,0 +1,19 @@
+name: Makefile CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: make
+
+    - name: Clean everything
+      run: make clean
