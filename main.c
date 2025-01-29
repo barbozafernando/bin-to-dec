@@ -24,24 +24,29 @@ void usage() {
 }
 
 int main(int argc __attribute__((unused)), char* argv[]) {
-    char* value = "";
-
-#if DEBUG
-    value = "1010";
-#else
-    if (argc != 2) {
-      usage();
-      exit(1);
+    if (argc < 2 || argc > 3) {
+        usage();
+        exit(1);
     }
 
-    value = argv[1];
-#endif
+    if (strcmp(argv[1], "-s") == 0) {
+        if (!argv[2] || !is_valid_binary(argv[2])) {
+            usage();
+            exit(1);
+        }
+
+        long long result = b2d_convert(argv[2], 1);
+
+        fprintf(stdout, "%lld\n", result);
+
+        return 0;
+    }
   
-    if (!is_valid_binary(value)) {
-      fatal("Invalid binary");
+    if (!is_valid_binary(argv[1])) {
+        fatal("Invalid binary");
     }
 
-    long long result = convert(value);
+    long long result = b2d_convert(argv[1], 0);
 
     fprintf(stdout, "%lld\n", result);
 
