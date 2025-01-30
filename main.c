@@ -23,7 +23,7 @@ void usage() {
     printf("USAGE: ./bin2dec <binary>");
 }
 
-int main(int argc __attribute__((unused)), char* argv[]) {
+int main(int argc, char* argv[]) {
     if (argc < 2 || argc > 3) {
         usage();
         exit(1);
